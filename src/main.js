@@ -9,28 +9,36 @@ $(document).ready(function() {
     event.preventDefault();
     let name = $("#name").val();
     let newCritter = new Critter(name);
+    let countDown = setInterval(deathChecker, 2000);
 
-    setInterval(function(){
+    function deathChecker() {
       newCritter.isDead();
+      $("#restText").text(newCritter.rest);
+      $("#feedText").text(newCritter.hunger);
+      $("#playText").text(newCritter.attention);
       if(newCritter.alive == false){
         alert("DEAD");
-        clearInterval();
+        stopCountdown();
       }
-    }, 2000);
+    }
 
-    $("#feed").submit(function(event){
-      event.preventDefault();
+    function stopCountdown(){
+      clearInterval(countDown);
+    }
+
+    $("#feed").click(function(){
       newCritter.feed();
+      $("#feedText").text(newCritter.hunger);
     })
 
-    $("#rest").submit(function(event){
-      event.preventDefault();
+    $("#rest").click(function(){
       newCritter.rest();
+      $("#restText").text(newCritter.rest);
     })
 
-    $("#play").submit(function(event){
-      event.preventDefault();
+    $("#play").click(function(){
       newCritter.entertain();
+      $("#playText").text(newCritter.attention);
     })
   });
 });
