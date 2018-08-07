@@ -11,7 +11,10 @@ $(document).ready(function() {
     let newCritter = new Critter(name);
     let countDown = setInterval(deathChecker, 2000);
     var slackURL= "https://hooks.slack.com/services/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";
-    var textForMessage = "Hello Javascript class my name is " + name + ". Will you play with me?";
+    var textForMessage = `Hello Javascript class my name is ` + name +
+    ` Will you feed me? My hunger is ` + newCritter.hunger +
+    ` Will you play with me?  My boredom is ` + newCritter.attention +
+    ` Will you put me to sleep, my fatigue is ` + newCritter.rest;
     var slackMessage= {"text": textForMessage};
     messageSlack(slackURL, slackMessage);
 
