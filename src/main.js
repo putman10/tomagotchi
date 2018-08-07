@@ -10,6 +10,16 @@ $(document).ready(function() {
     let name = $("#name").val();
     let newCritter = new Critter(name);
     let countDown = setInterval(deathChecker, 2000);
+    var slackURL= "https://hooks.slack.com/services/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";
+    var textForMessage = "Hello Javascript class my name is " + name + ". Will you play with me?";
+    var slackMessage= {"text": textForMessage};
+    messageSlack(slackURL, slackMessage);
+
+    function messageSlack(url, payload) {
+    $.post(url,JSON.stringify(payload), function(data){
+      $('result').text(data);
+    })
+  }
 
     function deathChecker() {
       newCritter.isDead();
