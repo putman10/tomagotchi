@@ -1,9 +1,9 @@
 export class Critter {
   constructor(name){
     this.name = name;
-    this.hunger = 5;
-    this.attention = 5;
-    this.rest = 5;
+    this.hunger = 50;
+    this.attention = 50;
+    this.rest = 50;
     this.alive = true;
   }
 
@@ -14,22 +14,16 @@ export class Critter {
 
   }
 
-  entertain(){
-    this.attention += 20;
-    this.hunger--;
-    this.rest--;
-  }
-
-  rest(){
-    this.attention --;
-    this.hunger--;
+  sleep(){
     this.rest += 20;
   }
 
   feed(){
-    this.attention --;
     this.hunger += 20;
-    this.rest--;
+  }
+
+  entertain(){
+    this.attention += 20;
   }
 
   isDead() {

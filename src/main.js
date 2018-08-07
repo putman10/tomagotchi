@@ -26,14 +26,14 @@ $(document).ready(function() {
       clearInterval(countDown);
     }
 
+    $("#rest").click(function(){
+      newCritter.sleep();
+      $("#restText").text(newCritter.rest);
+    })
+
     $("#feed").click(function(){
       newCritter.feed();
       $("#feedText").text(newCritter.hunger);
-    })
-
-    $("#rest").click(function(){
-      newCritter.rest();
-      $("#restText").text(newCritter.rest);
     })
 
     $("#play").click(function(){
