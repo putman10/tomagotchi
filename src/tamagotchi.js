@@ -35,8 +35,6 @@ export class Critter {
     }
   }
 
-
-
 //curl -X POST -H 'Content-type: application/json' --data '{"text":"Allow me to reintroduce myself!"}' https://hooks.slack.com/services/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
 
 }
